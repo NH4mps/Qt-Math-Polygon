@@ -1,0 +1,25 @@
+#ifndef MATHGRAPHICSPOLYGON_H
+#define MATHGRAPHICSPOLYGON_H
+
+#include <QObject>
+#include <QGraphicsItem>
+
+class MathGraphicsPolygon : public QGraphicsPolygonItem
+{
+    Q_OBJECT
+public:
+    explicit MathGraphicsPolygon(QGraphicsItem * parent = nullptr);
+    qreal square() const;
+    qreal perimeter() const;
+    QVector<QPointF> getPoints() const;
+    qreal getSidesCount() const;
+    void setPolygon(const QPolygonF & polygon);
+    
+private:
+
+signals:
+
+public slots:
+};
+
+#endif // ABSTRACTGRAPHICSSHAPE_H
