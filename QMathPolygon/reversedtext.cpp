@@ -12,23 +12,3 @@ void ReversedText::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
     QGraphicsTextItem::paint(painter,option, widget);
     painter->restore();
 }
-
-QPainterPath ReversedText::shape() const
-{
-    return QGraphicsItem::shape();
-}
-
-QPainterPath ReversedText::opaqueArea() const
-{
-    return QGraphicsItem::opaqueArea();
-}
-
-bool ReversedText::isObscuredBy(const QGraphicsItem *item) const
-{
-    return QGraphicsItem::isObscuredBy(item);
-}
-
-bool ReversedText::contains(const QPointF &point) const
-{
-    return QGraphicsItem::contains(point);
-}

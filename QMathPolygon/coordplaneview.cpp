@@ -39,12 +39,12 @@ void CoordPlaneView::zoomIn()
     }
     else
     {
-        QMessageBox* pmbx =
-        new QMessageBox(QMessageBox::Warning,
-        "MessageBox",
-        "You reach the maximum zoom",
-        QMessageBox::Ok
-        ) ;
+        QMessageBox* pmbx = new QMessageBox
+                (QMessageBox::Warning,
+                "MessageBox",
+                "You reach the maximum zoom",
+                QMessageBox::Ok
+                ) ;
         pmbx->exec();
         delete pmbx;
     }
@@ -60,12 +60,12 @@ void CoordPlaneView::zoomOut()
     }
     else
     {
-        QMessageBox* pmbx =
-        new QMessageBox(QMessageBox::Warning,
-        "MessageBox",
-        "You reach the minimum zoom",
-        QMessageBox::Ok
-        ) ;
+        QMessageBox* pmbx = new QMessageBox
+                (QMessageBox::Warning,
+                "MessageBox",
+                "You reach the minimum zoom",
+                QMessageBox::Ok
+                ) ;
         pmbx->exec();
         delete pmbx;
     }
