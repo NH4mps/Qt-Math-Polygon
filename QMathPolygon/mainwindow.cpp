@@ -9,41 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Adds coordinate system to the GUI
     coordSystem = new CoordPlaneScene(QRectF(-525,-300,1050,600), QPointF(50,50));
-    systemView = new CoordPlaneView(coordSystem);
-
-    //Polygon tests
-
-    QVector<QPointF> points;
-    points << QPointF(-100, -100) << QPointF(100, 100) << QPointF(100, -100) << QPointF(-100, 100);
-
-    QPainterPath path;
-    path.setFillRule(Qt::WindingFill);
-    for(int i = 0; i < points.size(); i++)
-    {
-        path.moveTo(points[i]);
-        for(int j = i; j < points.size() - 1; j++)
-        {
-            path.lineTo(points[j+1]);
-            path.moveTo(points[i]);
-        }
-    }
-
-    QPolygonF pol = path.toFillPolygon();
-
-    for(int i = 0; i < pol.size() - 1; i++)
-    {
-        qDebug() << pol[i];
-    }
-    //QPolygonF pol;
-    //pol << QPointF(-100, -100) << QPointF(100, 100) << QPointF(100, -100) << QPointF(-100, 100);
-
-    QGraphicsPolygonItem* quad = new QGraphicsPolygonItem(pol);
-    quad->setPen(QPen(QBrush(Qt::black),2));
-    quad->setBrush(QBrush(Qt::green));
-    quad->setFlag(QGraphicsItem::ItemIsMovable);
-    quad->setFillRule(Qt::FillRule::WindingFill);
-    coordSystem->addItem(quad);
-
+    systemView = new ViewWithButtons(coordSystem);
     ui->gridLayout->addWidget(systemView);
 }
 

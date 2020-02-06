@@ -13,10 +13,10 @@ CoordPlaneScene::CoordPlaneScene(const QRectF& size_, const QPointF& gridsize_)
     drawGrid();
 }
 
-//Function to set new grid size
+// Function to set new grid size
 void CoordPlaneScene::setGrid(const QPointF& gridsize_)
 {
-    //Delete previous grid from scene
+    // Delete previous grid from scene
     for(int i =0; i < griditems.size(); i++)
     {
         removeItem(griditems[i]);
@@ -24,14 +24,14 @@ void CoordPlaneScene::setGrid(const QPointF& gridsize_)
     }
     griditems.clear();
     coordinates.clear();
-    //Set new grid
+    // Sets new grid
     gridsize = gridsize_;
     drawGrid();
 }
 
 void CoordPlaneScene::drawGrid()
 {
-    //Add vertical grid lines
+    // Add vertical grid lines
     for(qreal i = -int(width()/gridsize.x())*gridsize.x(); i <= width(); i += gridsize.x())
     {
         griditems.append(addLine(QLineF(i, -height(), i, height()),QPen(QBrush(Qt::black),1,Qt::DashLine)));
@@ -40,7 +40,7 @@ void CoordPlaneScene::drawGrid()
         temp->moveBy(i,0);
         coordinates.append(temp);
     }
-    //Add horizontal grid lines
+    // Add horizontal grid lines
     for(qreal i = -int(height()/gridsize.y())*gridsize.y(); i <= height(); i += gridsize.y())
     {
         griditems.append(addLine(QLineF(-width(), i, width(), i),QPen(QBrush(Qt::black),1,Qt::DashLine)));
@@ -49,19 +49,6 @@ void CoordPlaneScene::drawGrid()
         temp->moveBy(0,i);
         coordinates.append(temp);
     }
-}
-
-//Function that increases grid size by 5
-void CoordPlaneScene::incGridSize()
-{
-    setGrid(QPointF(gridsize.x()+5,gridsize.y()+5));
-}
-
-//Function that decreases grid size by 5
-void CoordPlaneScene::decGridSize()
-{
-    if (gridsize.x()-5 > 0 && gridsize.y()-5 > 0)
-        setGrid(QPointF(gridsize.x()-5,gridsize.y()-5));
 }
 
 void CoordPlaneScene::changeGridSize(qreal dx, qreal dy)

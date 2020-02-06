@@ -12,17 +12,17 @@ class CoordPlaneView : public QGraphicsView
     Q_OBJECT
 public:
     CoordPlaneView(CoordPlaneScene *scene, QWidget *parent = nullptr);
-    ~CoordPlaneView();
-    void zoomIn();
-    void zoomOut();
-    void standartScale();
+
 protected:
     void keyPressEvent(QKeyEvent *event);
+
 private:
-    QPushButton* gridplus;
-    QPushButton* gridminus;
     qreal x;
     qreal y;
+
+protected slots:
+    void zoom(qreal x_coef, qreal y_coef);
+    void standartScale();
 };
 
 #endif // COORDPLANEVIEW_H

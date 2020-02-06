@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "coordplanescene.h"
-#include "coordplaneview.h"
+#include "viewwithbuttons.h"
 #include "addpolygon.h"
 #include "anymathpolygon.h"
 
@@ -34,7 +34,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     CoordPlaneScene* coordSystem;
-    CoordPlaneView* systemView;
+    ViewWithButtons* systemView;
 
 };
 #endif // MAINWINDOW_H
