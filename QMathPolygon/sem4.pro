@@ -22,7 +22,8 @@ SOURCES += \
     coordplaneview.cpp \
     main.cpp \
     mainwindow.cpp \
-    reversedtext.cpp
+    reversedtext.cpp \
+    viewwithbuttons.cpp
 
 HEADERS += \
     addpolygon.h \
@@ -30,7 +31,8 @@ HEADERS += \
     coordplanescene.h \
     coordplaneview.h \
     mainwindow.h \
-    reversedtext.h
+    reversedtext.h \
+    viewwithbuttons.h
 
 FORMS += \
     mainwindow.ui

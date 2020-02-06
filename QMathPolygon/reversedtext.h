@@ -1,4 +1,4 @@
-/* It copies qgraphics item, but text displays flipped vertically.
+/* It copies QGraphicsText item, but text displays flipped vertically.
  * Needed because qGraphicsScene coordinate system is left-handed while we usually use right-handed coordinate systems
  * Works with some visual bugs conected with repainting, but it is Ok for me
  * I guess they will never be fixed

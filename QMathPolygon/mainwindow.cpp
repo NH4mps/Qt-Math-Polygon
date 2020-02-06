@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Adds coordinate system to the GUI
     coordSystem = new CoordPlaneScene(QRectF(-525,-300,1050,600), QPointF(50,50));
-    systemView = new CoordPlaneView(coordSystem);
+    systemView = new ViewWithButtons(coordSystem);
     ui->gridLayout->addWidget(systemView);
 }
 
