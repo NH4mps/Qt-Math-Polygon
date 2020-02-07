@@ -62,15 +62,13 @@ qreal AnyMathPolygon::square() const
 
 qreal triSquare(QPointF fst, QPointF snd, QPointF thd)
 {
-    //Side lengths
+    // Side lengths
     qreal a = QLineF(fst,snd).length();
     qreal b = QLineF(snd,thd).length();
     qreal c = QLineF(thd,fst).length();
-
-    //Half of perimeter
+    // Half of perimeter
     qreal p = (a+b+c)/2;
-
-    //Heron's formula
+    // Heron's formula
     return qSqrt(p*(p-a)*(p-b)*(p-c));
 }
 

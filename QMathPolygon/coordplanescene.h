@@ -24,8 +24,6 @@ private:
     bool isPressed;
 
 protected slots:
-    void incGridSize();
-    void decGridSize();
     void changeGridSize(qreal dx, qreal dy);
 };
 
