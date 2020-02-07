@@ -1,15 +1,15 @@
 #include "coordplanescene.h"
 
-CoordPlaneScene::CoordPlaneScene(const QRectF& size_, const QPointF& gridsize_)
-    :QGraphicsScene(size_)
+CoordPlaneScene::CoordPlaneScene(const QRectF& size_, const QPointF& gridsize_, QObject *parent)
+    :QGraphicsScene(size_, parent)
     ,gridsize(gridsize_)
 {
-    //Set background color
+    // Set background color
     setBackgroundBrush (QBrush(Qt::white));
-    //Add X and Y axis lines
+    // Add X and Y axis lines
     addLine(QLineF(-width(), 0, width(), 0),QPen(QBrush(Qt::black),1));
     addLine(QLineF(0, -height(), 0, height()),QPen(QBrush(Qt::black),1));
-    //Set grid
+    // Set grid
     drawGrid();
 }
 
@@ -21,6 +21,8 @@ void CoordPlaneScene::setGrid(const QPointF& gridsize_)
     {
         removeItem(griditems[i]);
         removeItem(coordinates[i]);
+        delete griditems[i];
+        delete coordinates[i];
     }
     griditems.clear();
     coordinates.clear();
@@ -37,7 +39,7 @@ void CoordPlaneScene::drawGrid()
         griditems.append(addLine(QLineF(i, -height(), i, height()),QPen(QBrush(Qt::black),1,Qt::DashLine)));
         ReversedText* temp = new ReversedText(QString::number(i));
         addItem(temp);
-        temp->moveBy(i,0);
+        temp->moveBy(i, 0);
         coordinates.append(temp);
     }
     // Add horizontal grid lines
@@ -46,7 +48,7 @@ void CoordPlaneScene::drawGrid()
         griditems.append(addLine(QLineF(-width(), i, width(), i),QPen(QBrush(Qt::black),1,Qt::DashLine)));
         ReversedText* temp = new ReversedText(QString::number(i));
         addItem(temp);
-        temp->moveBy(0,i);
+        temp->moveBy(0, i);
         coordinates.append(temp);
     }
 }

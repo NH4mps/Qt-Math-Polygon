@@ -6,7 +6,6 @@ AnyMathPolygon::AnyMathPolygon(const QPolygonF &polygon, QGraphicsItem *parent) 
     setBrush(QBrush(Qt::green));
     setFlag(QGraphicsItem::ItemIsMovable);
     setFlag(QGraphicsItem::ItemIsSelectable);
-    //setFillRule(Qt::FillRule::WindingFill);
 }
 
 void AnyMathPolygon::setPolygon(const QPolygonF &polygon)

@@ -13,7 +13,7 @@ class ReversedText : public QGraphicsTextItem
 {
     Q_OBJECT
 public:
-    ReversedText(QString text);
+    ReversedText(QString text, QGraphicsItem *parent = nullptr);
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
 private:

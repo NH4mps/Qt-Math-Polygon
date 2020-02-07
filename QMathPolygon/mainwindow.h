@@ -20,19 +20,14 @@ public:
     ~MainWindow();
 
 private slots:
-
     void on_triangle_button_clicked();
-
     void on_quadrangle_button_clicked();
-
     void on_pentagon_button_clicked();
-
     void on_square_button_clicked();
-
     void on_xsquare_button_clicked();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow* ui;
     CoordPlaneScene* coordSystem;
     ViewWithButtons* systemView;
 

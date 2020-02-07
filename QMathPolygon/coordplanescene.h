@@ -12,7 +12,8 @@ class CoordPlaneScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    CoordPlaneScene(const QRectF& size_ = QRectF(-100, -100, 100, 100), const QPointF& gridsize_ = QPointF(10,10));
+    CoordPlaneScene(const QRectF& size_ = QRectF(-100, -100, 100, 100), const QPointF& gridsize_ = QPointF(10,10), QObject *parent = nullptr);
+
     void setGrid(const QPointF& gridsize_);
 
 private:
@@ -21,7 +22,6 @@ private:
     QPointF gridsize;
     QList<QGraphicsLineItem *> griditems;
     QList<ReversedText *> coordinates;
-    bool isPressed;
 
 protected slots:
     void changeGridSize(qreal dx, qreal dy);

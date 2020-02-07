@@ -8,6 +8,7 @@ class AnyMathPolygon : public QGraphicsPolygonItem
 {
 public:
     explicit AnyMathPolygon(const QPolygonF &polygon, QGraphicsItem *parent = nullptr);
+
     qreal perimeter() const;
     qreal square() const;
     void setPolygon(const QPolygonF &polygon);
