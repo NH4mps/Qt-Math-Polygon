@@ -4,7 +4,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , coordSystem(new CoordPlaneScene(QRectF(-525,-300,1050,600), QPointF(50,50), this))
+    , coordSystem(new SceneWithDrawing(QRectF(-525,-300,1050,600), QPointF(50,50), this))
     , systemView(new ViewWithButtons(coordSystem, this))
 {
     // Sets UI
@@ -23,7 +23,7 @@ void MainWindow::on_triangle_button_clicked()
     // Shows dialog window with coordinate fields
     AddPolygonDialog wind(3, this);
     wind.show();
-    // Adds riangle to the scene
+    // Adds triangle to the scene
     if(wind.exec() == QDialog::Accepted)
     {
         QPolygonF res = wind.getPoints();
@@ -37,7 +37,7 @@ void MainWindow::on_quadrangle_button_clicked()
     // Shows dialog window with coordinate fields
     AddPolygonDialog wind(4, this);
     wind.show();
-    // Adds triangle to the scene
+    // Adds quadrangle to the scene
     if(wind.exec() == QDialog::Accepted)
     {
         QPolygonF res = wind.getPoints();
@@ -51,7 +51,7 @@ void MainWindow::on_pentagon_button_clicked()
     // Shows dialog window with coordinate fields
     AddPolygonDialog wind(5, this);
     wind.show();
-    // Adds quadrangle to th scene
+    // Adds pentagon to the scene
     if(wind.exec() == QDialog::Accepted)
     {
         QPolygonF res = wind.getPoints();
@@ -65,7 +65,7 @@ void MainWindow::on_square_button_clicked()
     // Gets list of selected polygons
     QList<QGraphicsItem *> toCalculate = coordSystem->selectedItems();
     qreal sumSquare = 0;
-    // Counts and sums square for each of these items
+    // Calculates and accumulates square for each of these items
     for (int i = 0; i < toCalculate.size(); i++)
     {
        sumSquare += qgraphicsitem_cast<AnyMathPolygon *>(toCalculate[i])->square();

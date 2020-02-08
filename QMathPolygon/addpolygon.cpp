@@ -40,6 +40,7 @@ AddPolygonDialog::AddPolygonDialog(size_t vertice_cnt_,QWidget* parent)
 
 QPolygonF AddPolygonDialog::getPoints()
 {
+
     QPolygonF pol;
     for(size_t i = 0; i < vertice_cnt; ++i)
         pol << QPointF(spinBoxes[2*i]->value(), spinBoxes[2*i + 1]->value());

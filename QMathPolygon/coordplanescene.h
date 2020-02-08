@@ -1,5 +1,11 @@
+/* A small class that displays cooridnate system
+ * and allows to change grid size
+ * That's all for now
+ */
+
 #ifndef COORDPLANESCENE_H
 #define COORDPLANESCENE_H
+
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QDebug>

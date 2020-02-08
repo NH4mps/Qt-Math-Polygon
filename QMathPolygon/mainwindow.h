@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "coordplanescene.h"
+#include "scenewithdrawing.h"
 #include "viewwithbuttons.h"
 #include "addpolygon.h"
 #include "anymathpolygon.h"
@@ -28,7 +28,7 @@ private slots:
 
 private:
     Ui::MainWindow* ui;
-    CoordPlaneScene* coordSystem;
+    SceneWithDrawing* coordSystem;
     ViewWithButtons* systemView;
 
 };

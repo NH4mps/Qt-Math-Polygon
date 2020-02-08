@@ -38,6 +38,7 @@ void CoordPlaneView::zoom(qreal x_coef, qreal y_coef)
 
 void CoordPlaneView::keyPressEvent(QKeyEvent* pe)
 {
+    QGraphicsView::keyPressEvent(pe);
     switch  (pe->key())
     {
         case Qt::Key_Equal:
