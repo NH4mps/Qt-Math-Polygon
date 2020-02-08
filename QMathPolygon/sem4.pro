@@ -23,6 +23,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     reversedtext.cpp \
+    scenewithdrawing.cpp \
     viewwithbuttons.cpp
 
 HEADERS += \
@@ -32,6 +33,7 @@ HEADERS += \
     coordplaneview.h \
     mainwindow.h \
     reversedtext.h \
+    scenewithdrawing.h \
     viewwithbuttons.h
 
 FORMS += \

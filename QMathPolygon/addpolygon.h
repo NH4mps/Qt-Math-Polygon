@@ -8,47 +8,17 @@
 #include <QLabel>
 #include <QString>
 
-class AddTriangle : public QDialog
+class AddPolygonDialog : public QDialog
 {
     Q_OBJECT
 public:
-    AddTriangle(QWidget* parent = nullptr);
-    ~AddTriangle();
-    virtual QPolygonF getPoints();
+    AddPolygonDialog(size_t vertice_cnt_,QWidget* parent = nullptr);
 
-protected:
-    QGridLayout* layout;
-    QDoubleSpinBox* x1;
-    QDoubleSpinBox* y1;
-    QDoubleSpinBox* x2;
-    QDoubleSpinBox* y2;
-    QDoubleSpinBox* x3;
-    QDoubleSpinBox* y3;
+    QPolygonF getPoints();
 
-};
-
-class AddQuadrangle : public AddTriangle
-{
-public:
-    AddQuadrangle (QWidget* parent = nullptr);
-    ~AddQuadrangle();
-    virtual QPolygonF getPoints();
-
-protected:
-    QDoubleSpinBox* x4;
-    QDoubleSpinBox* y4;
-};
-
-class AddPentagon : public AddQuadrangle
-{
-public:
-    AddPentagon(QWidget* parent = nullptr);
-    ~AddPentagon ();
-    virtual QPolygonF getPoints();
-
-protected:
-    QDoubleSpinBox* x5;
-    QDoubleSpinBox* y5;
+private:
+    QList<QDoubleSpinBox*> spinBoxes;
+    size_t vertice_cnt;
 };
 
 #endif // ADDTRIANGLE_H

@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "coordplanescene.h"
+#include "scenewithdrawing.h"
 #include "viewwithbuttons.h"
 #include "addpolygon.h"
 #include "anymathpolygon.h"
@@ -20,20 +20,15 @@ public:
     ~MainWindow();
 
 private slots:
-
     void on_triangle_button_clicked();
-
     void on_quadrangle_button_clicked();
-
     void on_pentagon_button_clicked();
-
     void on_square_button_clicked();
-
     void on_xsquare_button_clicked();
 
 private:
-    Ui::MainWindow *ui;
-    CoordPlaneScene* coordSystem;
+    Ui::MainWindow* ui;
+    SceneWithDrawing* coordSystem;
     ViewWithButtons* systemView;
 
 };
