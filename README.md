@@ -1,2 +1,2 @@
 # Qt-Math-Polygon-Demo
-This is a simple app to demonstate posibility of AnyMathPolygon lib.
+This is a simple app to demonstrate posibilities of AnyMathPolygon lib.
