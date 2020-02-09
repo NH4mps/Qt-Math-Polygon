@@ -48,9 +48,10 @@ QPolygonF AnyMathPolygon::sortPoints( const QPolygonF &polygon)
 {
     // Sorts points by height
     QPolygonF points = polygon;
-    std::sort(points.begin(), points.end(),[](const QPointF &a,const QPointF &b){return a.y() < b.y();});
-
+    std::sort(points.begin(), points.end(), [](const QPointF &a,const QPointF &b){return a.y() < b.y();});
+    // Result vector
     QPolygonF res_polygon;
+    // line to compare with
     QLineF line(points[0], points[points.size()-1]);
     // Puts points below the line in the result vector
     for(int i = 0; i < points.size();)

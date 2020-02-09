@@ -53,7 +53,5 @@ void CoordPlaneView::keyPressEvent(QKeyEvent* pe)
             if(pe->modifiers() & Qt::ControlModifier)
                 standartScale();
             break;
-        default:
-           qDebug() << "You pressed wrong buttons\n";
     }
 }

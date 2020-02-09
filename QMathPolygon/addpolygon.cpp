@@ -1,14 +1,14 @@
 #include "addpolygon.h"
 
-AddPolygonDialog::AddPolygonDialog(size_t vertice_cnt_,QWidget* parent)
+AddPolygonDialog::AddPolygonDialog(size_t vertice_cnt_, const QRectF& window_range_, QWidget* parent)
     : QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint)
     , vertice_cnt(vertice_cnt_)
+    , window_range(window_range_)
 {
     QGridLayout* layout = new QGridLayout(this);
     // Sets window properties
-    this->setWindowTitle ("Add Triangle");
-    this->setModal(true);
-    this->resize(200,90);
+    setWindowTitle ("Add Triangle");
+    setModal(true);
     // Adds default buttons
     QPushButton* ok = new QPushButton("&Ok", this);
     QPushButton* cancel = new QPushButton("&Cancel", this);
@@ -19,8 +19,8 @@ AddPolygonDialog::AddPolygonDialog(size_t vertice_cnt_,QWidget* parent)
         // Sets field ranges and adds sniboxes to the list
         QDoubleSpinBox* spinBoxX = new QDoubleSpinBox(this);
         QDoubleSpinBox* spinBoxY = new QDoubleSpinBox(this);
-        spinBoxX->setRange(-525,525);                       //ADD BORDERS TO THESE FIELDS IN THE CONTRUCTOR
-        spinBoxY->setRange(-300,300);                       //ADD BORDERS TO THESE FIELDS IN THE CONTRUCTOR
+        spinBoxX->setRange(window_range.left(), window_range.right());
+        spinBoxY->setRange(window_range.top(), window_range.bottom());
         spinBoxes.append(spinBoxX);
         spinBoxes.append(spinBoxY);
         // Adds labels
