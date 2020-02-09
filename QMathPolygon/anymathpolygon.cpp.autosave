@@ -46,13 +46,13 @@ void AnyMathPolygon::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
 
 QPolygonF AnyMathPolygon::sortPoints( const QPolygonF &polygon)
 {
+    // Sorts points by height
     QPolygonF points = polygon;
     std::sort(points.begin(), points.end(),[](const QPointF &a,const QPointF &b){return a.y() < b.y();});
-    for(QPointF point : points)
-        qDebug() << point << '\n';
 
     QPolygonF res_polygon;
     QLineF line(points[0], points[points.size()-1]);
+    // Puts points below the line in the result vector
     for(int i = 0; i < points.size();)
         if(points[i] < line)
         {
@@ -61,10 +61,9 @@ QPolygonF AnyMathPolygon::sortPoints( const QPolygonF &polygon)
         }
         else
             ++i;
+    // Puts remaining points in reverse order in the result vector
     for(auto it = points.rbegin(); it != points.rend(); ++it)
-    {
         res_polygon.push_back(*it);
-    }
 
     return res_polygon;
 }
@@ -131,3 +130,4 @@ bool operator<(const QPointF &p, const QLineF &l)
         return p.y() < a*p.x() + b;
     }
 }
+
