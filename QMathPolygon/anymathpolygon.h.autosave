@@ -1,7 +1,6 @@
-/* A graphics polygon that supports some math operations
- * It should sort points in the constructor to display polygon correctly
+/* A graphics polygon that supports some math operations.
+ * It sorts points in the constructor to display polygon correctly
  * at any permutation of points in argument.
- * But I haven't implemented it yet.
 */
 
 #ifndef ANYMATHPOLYGON_H
@@ -32,9 +31,10 @@ private:
 
 };
 
-bool operator< (const QPointF &p, const QLineF &l);
 qreal triSquare(QPointF fst, QPointF snd, QPointF thd);
 qreal intersectedSquare(const AnyMathPolygon & one, const AnyMathPolygon & another);
 qreal intersectedSquare(const QPolygonF &one, const QPolygonF &another);
+
+bool operator< (const QPointF &p, const QLineF &l);
 
 #endif // ANYMATHPOLYGON_H
