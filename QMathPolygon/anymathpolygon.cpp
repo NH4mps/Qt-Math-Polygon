@@ -89,6 +89,8 @@ qreal AnyMathPolygon::square() const
 {
     QPolygonF pnt = polygon();
 
+    if (pnt.size() < 3) return 0;
+
     qreal square = 0;
     for (int i = 0; i < pnt.size() - 2; i++)
         square += triSquare(pnt[0], pnt[i+1], pnt[i+2]);
@@ -131,4 +133,3 @@ bool operator<(const QPointF &p, const QLineF &l)
         return p.y() < a*p.x() + b;
     }
 }
-

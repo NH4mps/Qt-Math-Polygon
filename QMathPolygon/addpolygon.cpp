@@ -6,12 +6,15 @@ AddPolygonDialog::AddPolygonDialog(size_t vertice_cnt_, const QRectF& window_ran
     , window_range(window_range_)
 {
     QGridLayout* layout = new QGridLayout(this);
+
     // Sets window properties
     setWindowTitle ("Add Triangle");
     setModal(true);
+
     // Adds default buttons
     QPushButton* ok = new QPushButton("&Ok", this);
     QPushButton* cancel = new QPushButton("&Cancel", this);
+
     // Sets layout
     size_t i = 0;
     for(; i < vertice_cnt; ++i)
@@ -23,8 +26,10 @@ AddPolygonDialog::AddPolygonDialog(size_t vertice_cnt_, const QRectF& window_ran
         spinBoxY->setRange(window_range.top(), window_range.bottom());
         spinBoxes.append(spinBoxX);
         spinBoxes.append(spinBoxY);
+
         // Adds labels
         QLabel* p_number = new QLabel("Point " + QString::number(i + 1));
+
         // Adds created widgets to the layout
         layout->addWidget(p_number, i, 0);
         layout->addWidget(spinBoxX, i, 1);
@@ -33,6 +38,7 @@ AddPolygonDialog::AddPolygonDialog(size_t vertice_cnt_, const QRectF& window_ran
     layout->addWidget(cancel, i, 2);
     layout->addWidget(ok, i, 1);
     setLayout(layout);
+
     // Connects slots
     connect(ok, SIGNAL(clicked()), SLOT(accept()));
     connect(cancel, SIGNAL(clicked()), SLOT(reject()));
