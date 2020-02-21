@@ -23,6 +23,14 @@ public:
     qreal perimeter() const;
     qreal square() const;
 
+    enum { Type = UserType + 1 };
+
+    int type() const override
+    {
+        // Enable the use of qgraphicsitem_cast with this item.
+        return Type;
+    }
+
 protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant & value) override;
     void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override;
